@@ -1,5 +1,4 @@
 "reviewerID": "A1VEELTKS8NLZB",
 "asin": "616719923X",
 "overall": 4.0,
-"summary": "Good Taste",
 "unixReviewTime": 1370044800,
