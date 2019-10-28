@@ -1,7 +1,10 @@
 # Improvement of the Amazon Recommendation System
 
 # Abstract
-In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by assessing and analyzing reviews of users. Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to detect products that may be harmful and provide alternative options to customers. This may be done by graph based time-link prediction.
+In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by assessing and analyzing reviews of users. Today world has become a highly connected place in which networks are associated in our day-to-day lives. As we begin to enter the new era of Big Data, the contemporary Recommender System faces greatly
+increased data size and complexities. Previous computational models and experience on small data may not hold today, thus, how to build an efficient and robust system has become an important issue for many practitioners. How to extract meaningful knowledge from the massive data becomes an important issue and attracts increasing attention on it. For a user it is getting harder to reach the relevant food product items according to his/her personal taste and preferences. It could be better and convenient, if the websites give them some smart advices and also could think from customer‘s perspective of view and provide products that customers never thought but will love when they saw them. 
+
+Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to detect products that may be harmful and provide alternative options to customers. This may be done by graph based time-link prediction.
 
 In our data story we will try show how a general bad review of a product (i.e. because of personal taste or false expectations of the user) should be distinguished from health related ones. Using the FDA dataset will help us relating reviews to actual recalls of food products.
 
@@ -14,7 +17,8 @@ The overall goal is to enhance Amazon's user experience by considering possible 
 
 # Dataset
 
-We plan to get the two datasets from Julian McAuley
+We plan to use three two datasets:
+
 * [Amazon's Grocery and Gourmet Food product reviews](http://jmcauley.ucsd.edu/data/amazon/) from Julian McAuley, UCSD (University of California, Sandiego)
 * [Amazon's Grocery and Gourmet Food product metadata](http://jmcauley.ucsd.edu/data/amazon/) (to be able to link the reviews' asin field with an actual product name) from Julian McAuley, UCSD (University of California, Sandiego)
 * Food Recall Enforcement Reports from [FDA](https://open.fda.gov/downloads/) from Food and Drug Administration (FDA)
@@ -51,9 +55,9 @@ Below is an example of Amazon product Review parser(year wise) code:
 From the above chart it clearly visible that larger reviews are available only in few years,
 that is in the case:
 * Grocery and Gourmet Food -
-       1. (2012 - 192903)
-       2. (2013 - 466834)
-       3. (2014 - 338303)
+     1. (2012 - 192903)
+     2. (2013 - 466834)
+     3. (2014 - 338303)
         
 # A list of internal milestones up until project milestone 
 
@@ -87,8 +91,8 @@ that is in the case:
 
 * 31.11---**DEBUGGING AND WRITING THE DATA STORY**
 
-    1. Comment and debug our code
-    2. Write the data story.
+     1. Comment and debug our code
+     2. Write the data story.
 
 
 # Questions for TAa
