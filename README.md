@@ -1,7 +1,7 @@
 # Improvement of the Amazon Recommendation System
 
 # Abstract
-In our project, we aim at improving the Amazon Product Recommendation System for groceries by assessing and analyzing reviews of users. Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to detect products that may be harmful and provide alternative options to customers. This may be done by graph based time-link prediction.
+In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by assessing and analyzing reviews of users. Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to detect products that may be harmful and provide alternative options to customers. This may be done by graph based time-link prediction.
 
 In our data story we will try show how a general bad review of a product (i.e. because of personal taste or false expectations of the user) should be distinguished from health related ones. Using the FDA dataset will help us relating reviews to actual recalls of food products.
 
@@ -50,16 +50,45 @@ Below is an example of Amazon product Review parser(year wise) code:
 
 From the above chart it clearly visible that larger reviews are available only in few years,
 that is in the case:
-* Grocery and Gourmet Food- (2012 - 192903), (2013 - 466834), (2014 - 338303)
+* Grocery and Gourmet Food -
+       1. (2012 - 192903)
+       2. (2013 - 466834)
+       3. (2014 - 338303)
+        
+# A list of internal milestones up until project milestone 
 
-# A list of internal milestones up until project milestone 2
-* Explore various Natural Language Processing (NLP) algorithms to detect and classify possibly harmful products by analyzing user product reviews.
+* 30.10---Download the required data
+    
+     1. Set up the Git and project skeleton.
+     2. Summarize the data.
+     3. Analyze the data. (Format, Structure, Size)
+     4. Preprocess Data (Remove Duplicates).
+     5. Draw Conclusions, make Inferences or Decision about the dataset after observing only a subset – a sample from it 
 
-* Explore various Graph mining algorithms to detect and classify possibly harmful products by analyzing user product reviews.
+* 3.11---DATA AND FEATURE ENGIEERING
 
-* Convert data to snap formart
+     1. Analyze the given features of Amazon reviews, Amazon metadata and FDA dataset.
+     2. Understand existing recommendation system approaches (for example collaborative filtering, content based filtering, hybrid recommendation engine, graph based recommednation system) by reviewing many research articles.
+     3. Look what can be improved (for example by reading the future research suggestions by the authors/ by figuring out any pitfalls in the existing work)
+      
+    
 
-* Compare time points of health related negative reviews and FDA product recalls.
+* 19.11---MODEL SELECTION
+     1. Explore various NLP approaches to detect and classify possibly harmful products by analyzing user product reviews and FDA Recall Reason text.
+     2. Compare time points of health related negative reviews and FDA product recalls.
+     3. Append an additional rating to the positive/negative one that is provided by NLTK
+     4. Find the most powerful way to store and look up all our data (Example:  Using High performace graph based libraries like SNAP (Stanford Network Analysis Platform))
+     5. Explore various graph mining Algorithms to group similar users and similar products from the Amazon dataset.
+     6. Construct a Bipartite graph and explore various link prediction algorithms (for example Common Neighbors, Jaccard Coefficient, Adamic-Adar or IR based algorithms)
+
+    
+* 26.11 ---Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
+
+* 31.11------
+
+    1. Comment and debug our code
+    2. Write the data story.
+
 
 # Questions for TAa
 * Which of the Amazon's dataset are we actually supposed to use? The dataset's name on the google docs indicate that we are supposed to use only the reviews from the Grocery and Gourmet Food category, but the indicated size is for all the categories.
