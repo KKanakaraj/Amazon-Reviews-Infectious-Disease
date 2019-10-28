@@ -17,14 +17,27 @@ The overall goal is to enhance Amazon's user experience by considering possible 
 * [Amazon's Grocery and Gourmet Food product metadata](http://jmcauley.ucsd.edu/data/amazon/) (to be able to link the reviews' asin field with an actual product name)
 * Food Recall Enforcement Reports from [FDA](https://open.fda.gov/downloads/) 
 
+Below Table shows the number of user reviews and number of products for Amazon's Grocery and Gourmet Food:
+
 
 | Number\ Category  | Grocery and Gourmet  |
 | ------------- | ------------- |
 |Reviews  | 1,297,156   |
 | Products  | 171,760  |
 
-![Histogram](https://raw.githubusercontent.com/KKanakaraj/Amazon-Reviews-Infectious-Disease/blob/develop/histogram_year.png)
+The format of the files for both metadata and reviews dataset was json. The size of each
+raw data set is presented in the Table below:
+
+| Size\Category  | Grocery and Gourmet  |
+| ------------- | ------------- |
+|Reviews  | 733.5 MB   |
+| Products  | 196.8 MB  |
+
 ![Screenshot](histogram_year.png)
+
+
+Below is an example of Amazon product Review parser(year wise) code:
+![Screenshot](Review_Parser.png)
 
 # A list of internal milestones up until project milestone 2
 * Find an Natural Language Processing (NLP) algorithm to detect possibly harmful products by analyzing product reviews.
