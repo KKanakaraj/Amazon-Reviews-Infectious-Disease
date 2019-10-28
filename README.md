@@ -1,14 +1,11 @@
 # Improvement of the Amazon Recommendation System
 
 # Abstract
-In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by assessing and analyzing reviews of users. Today world has become a highly connected place in which networks are associated in our day-to-day lives. As we begin to enter the new era of Big Data, the contemporary Recommender System faces greatly
-increased data size and complexities. Previous computational models and experience on small data may not hold today, thus, how to build an efficient and robust system has become an important issue for many practitioners. How to extract meaningful knowledge from the massive data becomes an important issue and attracts increasing attention on it. For a user it is getting harder to reach the relevant food product items according to his/her personal taste and preferences. It could be better and convenient, if the websites give them some smart advices and also could think from customer‘s perspective of view and provide products that customers never thought but will love when they saw them. 
+ Today world has become a highly connected place in which networks are associated in our day-to-day lives. As we begin to enter the new era of Big Data, the contemporary Recommender System faces greatly increased data size and complexities. Previous computational models and experience on small data may not hold today, thus, how to build an efficient and robust system and how to extract meaningful knowledge from the massive data becomes an important issue and attracts increasing attention on it. For a user it is getting harder to reach the relevant food product items according to his/her personal taste and preferences. It could be better and convenient, if the websites give them some smart advices and also could think from customer‘s perspective of view and provide products that customers never thought but will love when they saw them. In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by analyzing the reviews of users. 
 
-Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to detect products that may be harmful and provide alternative options to customers. This may be done by graph based time-link prediction.
+Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to distinguish products that users like and dislike and by building a time based link prediction to provide best recommendations to the customers. 
 
-In our data story we will try show how a general bad review of a product (i.e. because of personal taste or false expectations of the user) should be distinguished from health related ones. Using the FDA dataset will help us relating reviews to actual recalls of food products.
-
-The overall goal is to enhance Amazon's user experience by considering possible health threats. This would encourage retailers to maintain quality standards, could improve quality of food products and eventually enhance health and life quality of people.
+In our data story we will try show how a general bad review of a product (i.e. because of personal taste or false expectations of the user) should be distinguished from health related ones. Using the FDA dataset will help us relating reviews to actual recalls of food products. The overall goal is to enhance Amazon's user experience by considering possible health threats. This would encourage retailers to maintain quality standards, could improve quality of food products and eventually enhance health and life quality of people.
 
 # Research questions
 * Can possibly harmful products from Amazon's grocery and food products be detected by analyzing user reviews?
@@ -17,7 +14,7 @@ The overall goal is to enhance Amazon's user experience by considering possible 
 
 # Dataset
 
-We plan to use three two datasets:
+We plan to use three datasets:
 
 * [Amazon's Grocery and Gourmet Food product reviews](http://jmcauley.ucsd.edu/data/amazon/) from Julian McAuley, UCSD (University of California, Sandiego)
 * [Amazon's Grocery and Gourmet Food product metadata](http://jmcauley.ucsd.edu/data/amazon/) (to be able to link the reviews' asin field with an actual product name) from Julian McAuley, UCSD (University of California, Sandiego)
@@ -78,6 +75,7 @@ that is in the case:
     
 
 * 19.11---**MODEL SELECTION**
+
      1. Explore various NLP approaches to detect and classify possibly harmful products by analyzing user product reviews and FDA Recall Reason text.
      2. Compare time points of health related negative reviews and FDA product recalls.
      3. Append an additional rating to the positive/negative one that is provided by NLTK
@@ -87,7 +85,8 @@ that is in the case:
 
     
 * 26.11---**MODEL VALIDATION**
-     1.Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
+
+     1. Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
 
 * 31.11---**DEBUGGING AND WRITING THE DATA STORY**
 
@@ -96,6 +95,8 @@ that is in the case:
 
 
 # Questions for TAa
-* Which of the Amazon's dataset are we actually supposed to use? The dataset's name on the google docs indicate that we are supposed to use only the reviews from the Grocery and Gourmet Food category, but the indicated size is for all the categories.
+* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided?
 
-* Related to the previous, the source for the dataset links to the 2014 version, but there is a new 2018 updated one. Thus, all the links for data download on the source's page redirects us to the new, updated version. Which one will be made available on the cluster?
+* Can we alter some of our subgoals without affecting the main goal.
+
+* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough?  
