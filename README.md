@@ -23,7 +23,7 @@ The overall goal is to enhance Amazon's user experience by considering possible 
 |Reviews  | 1,297,156   |
 | Products  | 171,760  |
 
-![Cat](https://raw.githubusercontent.com/{user}/{repo}/assets/cat.png)
+![Cat](https://raw.githubusercontent.com/KKanakaraj/Amazon-Reviews-Infectious-Disease/tree/develop/histogram_year.png)
 
 
 # A list of internal milestones up until project milestone 2
