@@ -57,7 +57,7 @@ that is in the case:
         
 # A list of internal milestones up until project milestone 
 
-* 30.10---Download the required data
+* 30.10---**DOWNLOAD THE REQUIRED DATA**
     
      1. Set up the Git and project skeleton.
      2. Summarize the data.
@@ -65,7 +65,7 @@ that is in the case:
      4. Preprocess Data (Remove Duplicates).
      5. Draw Conclusions, make Inferences or Decision about the dataset after observing only a subset – a sample from it 
 
-* 3.11---DATA AND FEATURE ENGIEERING
+* 3.11---**DATA AND FEATURE ENGIEERING**
 
      1. Analyze the given features of Amazon reviews, Amazon metadata and FDA dataset.
      2. Understand existing recommendation system approaches (for example collaborative filtering, content based filtering, hybrid recommendation engine, graph based recommednation system) by reviewing many research articles.
@@ -73,7 +73,7 @@ that is in the case:
       
     
 
-* 19.11---MODEL SELECTION
+* 19.11---**MODEL SELECTION**
      1. Explore various NLP approaches to detect and classify possibly harmful products by analyzing user product reviews and FDA Recall Reason text.
      2. Compare time points of health related negative reviews and FDA product recalls.
      3. Append an additional rating to the positive/negative one that is provided by NLTK
@@ -82,9 +82,10 @@ that is in the case:
      6. Construct a Bipartite graph and explore various link prediction algorithms (for example Common Neighbors, Jaccard Coefficient, Adamic-Adar or IR based algorithms)
 
     
-* 26.11 ---Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
+* 26.11---**MODEL VALIDATION**
+     1.Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
 
-* 31.11------
+* 31.11---**DEBUGGING AND WRITING THE DATA STORY**
 
     1. Comment and debug our code
     2. Write the data story.
