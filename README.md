@@ -24,7 +24,7 @@ The overall goal is to enhance Amazon's user experience by considering possible 
 | Products  | 171,760  |
 
 ![Histogram](https://raw.githubusercontent.com/KKanakaraj/Amazon-Reviews-Infectious-Disease/blob/develop/histogram_year.png)
-
+![Screenshot](histogram_year.png)
 
 # A list of internal milestones up until project milestone 2
 * Find an Natural Language Processing (NLP) algorithm to detect possibly harmful products by analyzing product reviews.
