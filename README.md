@@ -13,9 +13,11 @@ The overall goal is to enhance Amazon's user experience by considering possible 
 * Can insights from our research be used to improve Amazon's Recommendation system in regard to protecting Amazon users' health?
 
 # Dataset
-* [Amazon's Grocery and Gourmet Food product reviews](http://jmcauley.ucsd.edu/data/amazon/)
-* [Amazon's Grocery and Gourmet Food product metadata](http://jmcauley.ucsd.edu/data/amazon/) (to be able to link the reviews' asin field with an actual product name)
-* Food Recall Enforcement Reports from [FDA](https://open.fda.gov/downloads/) 
+
+We plan to get the two datasets from Julian McAuley
+* [Amazon's Grocery and Gourmet Food product reviews](http://jmcauley.ucsd.edu/data/amazon/) from Julian McAuley, UCSD (University of California, Sandiego)
+* [Amazon's Grocery and Gourmet Food product metadata](http://jmcauley.ucsd.edu/data/amazon/) (to be able to link the reviews' asin field with an actual product name) from Julian McAuley, UCSD (University of California, Sandiego)
+* Food Recall Enforcement Reports from [FDA](https://open.fda.gov/downloads/) from Food and Drug Administration (FDA)
 
 Below Table shows the number of user reviews and number of products for Amazon's Grocery and Gourmet Food:
 
@@ -28,19 +30,35 @@ Below Table shows the number of user reviews and number of products for Amazon's
 The format of the files for both metadata and reviews dataset was json. The size of each
 raw data set is presented in the Table below:
 
-| Size\Category  | Grocery and Gourmet  |
+| Size\Category  | Grocery and Gourmet Food  |
 | ------------- | ------------- |
 |Reviews  | 733.5 MB   |
 | Products  | 196.8 MB  |
 
-![Screenshot](histogram_year.png)
 
+
+The data collected is very huge spanning from 2000-2014. Therefore first the data was
+analyzed for number of reviews for each year in order to choose the years for parsing the
+data set for testing and validating phase for the recommender system.
 
 Below is an example of Amazon product Review parser(year wise) code:
 ![Screenshot](Review_Parser.png)
 
+
+![Screenshot](histogram_year.png)
+
+
+From the above chart it clearly visible that larger reviews are available only in few years,
+that is in the case:
+* Grocery and Gourmet Food- (2012 - 192903), (2013 - 466834), (2014 - 338303)
+
 # A list of internal milestones up until project milestone 2
-* Find an Natural Language Processing (NLP) algorithm to detect possibly harmful products by analyzing product reviews.
+* Explore various Natural Language Processing (NLP) algorithms to detect and classify possibly harmful products by analyzing user product reviews.
+
+* Explore various Graph mining algorithms to detect and classify possibly harmful products by analyzing user product reviews.
+
+* Convert data to snap formart
+
 * Compare time points of health related negative reviews and FDA product recalls.
 
 # Questions for TAa
