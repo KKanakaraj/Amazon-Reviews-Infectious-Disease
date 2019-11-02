@@ -1,9 +1,0 @@
-"reviewerID": "A1VEELTKS8NLZB",
-"asin": "616719923X",
-"reviewerName": "Amazon Customer",
-"helpful": [0, 0],
-"reviewText": "Just another flavor of Kit Kat but the taste is unique and a bit different.  The only thing that is bothersome is the price.  I thought it was a bit expensive....",
-"overall": 4.0,
-"summary": "Good Taste",
-"unixReviewTime": 1370044800,
-"reviewTime": "06 1, 2013"
