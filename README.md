@@ -102,5 +102,21 @@ that is in the case:
 * Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough? 
 
 
+<<<<<<< HEAD
 
 
+=======
+# Project Structure
+        Project
+        |-- _data
+        │   |-- __init__.py
+        │   |-- cli.py
+        │   |-- lib.py
+        |
+        |-- _notebooks
+        |-- _docs
+        │   |-- __init__.py
+        │   |-- test_fact.py
+        |-- _tox.ini
+        |-- _setup.py
+>>>>>>> 287e12e94634d7726be70f61f9de32dae30b6ca5
