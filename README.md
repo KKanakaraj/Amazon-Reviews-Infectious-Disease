@@ -103,20 +103,4 @@ that is in the case:
 
 
 
-* Project Structure------------------------------------------------------------------
-.. code-block::
 
-    Project
-    |-- _data
-    │   |-- __init__.py
-    │   |-- cli.py
-    │   |-- lib.py
-    |
-    |-- _notebooks
-    |-- _docs
-    │   |-- __init__.py
-    │   |-- test_fact.py
-    |-- _tox.ini
-    |-- _setup.py
-
- 
