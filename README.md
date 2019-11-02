@@ -99,4 +99,24 @@ that is in the case:
 
 * Can we alter some of our subgoals without affecting the main goal.
 
-* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough?  
+* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough? 
+
+
+
+* Project Structure------------------------------------------------------------------
+.. code-block::
+
+    Project
+    |-- data
+    │   |-- __init__.py
+    │   |-- cli.py
+    │   |-- lib.py
+    |
+    |---notebooks
+    |-- docs
+    │   |-- __init__.py
+    │   |-- test_fact.py
+    |-- tox.ini
+    |-- setup.py
+
+ 
