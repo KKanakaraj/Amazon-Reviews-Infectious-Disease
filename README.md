@@ -119,4 +119,14 @@ that is in the case:
         │   |-- test_fact.py
         |-- _tox.ini
         |-- _setup.py
+        |-- _results
+        |-- _requirements.txt
+        |-- _src
+            |-- d00_utils
+            |-- d01_data
+            |-- d02_intermediate
+            |-- d03_processing
+            |-- d04_model_evaluation
+            |-- d05_reporting
+            |-- d06_visualization
 >>>>>>> 287e12e94634d7726be70f61f9de32dae30b6ca5
