@@ -107,16 +107,16 @@ that is in the case:
 .. code-block::
 
     Project
-    |-- data
+    |-- _data
     │   |-- __init__.py
     │   |-- cli.py
     │   |-- lib.py
     |
-    |---notebooks
-    |-- docs
+    |-- _notebooks
+    |-- _docs
     │   |-- __init__.py
     │   |-- test_fact.py
-    |-- tox.ini
-    |-- setup.py
+    |-- _tox.ini
+    |-- _setup.py
 
  
