@@ -130,4 +130,5 @@ that is in the case:
         |   |-- d05_reporting
         |   |-- d06_visualization
         |-- _modelling
+            |-- train_model.py
         |-- _visualise_recommendation.py
