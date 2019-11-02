@@ -95,8 +95,8 @@ that is in the case:
 
 
 # Questions for TAa
-* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided ?
+* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided?
 
 * Can we alter some of our subgoals without affecting the main goal.
 
-* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough ?  
+* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough?  
