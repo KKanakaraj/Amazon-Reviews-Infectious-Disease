@@ -12,7 +12,7 @@ fList = []
 if not os.path.exists(directory+item+'/'):
     os.makedirs(directory+item+'/')
 
-for year in range(1999, 2014):
+for year in range(2000, 2014):
 	fList.append(open(directory + item + '/reviews_' + item + '_' + str(year) +'.json', 'w'))
 
 def parseIterator(path):
