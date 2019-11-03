@@ -102,7 +102,7 @@ that is in the case:
 * Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough? 
 
 
-<<<<<<< HEAD
+
 
 
 =======
