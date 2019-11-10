@@ -95,8 +95,40 @@ that is in the case:
 
 
 # Questions for TAa
-* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided ?
+* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided?
 
 * Can we alter some of our subgoals without affecting the main goal.
 
-* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough ?  
+* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough? 
+
+
+
+
+
+=======
+# Project Structure
+        Project
+        |-- _data
+        │   |-- __init__.py
+        │   |-- cli.py
+        │   |-- lib.py
+        |
+        |-- _notebooks
+        |-- _docs
+        │   |-- __init__.py
+        │   |-- test_fact.py
+        |-- _tox.ini
+        |-- _setup.py
+        |-- _results
+        |-- _requirements.txt
+        |-- _src
+        |   |-- d00_utils
+        |   |-- d01_data
+        |   |-- d02_intermediate
+        |   -- d03_processing
+        |   |-- d04_model_evaluation
+        |   |-- d05_reporting
+        |   |-- d06_visualization
+        |-- _modelling
+            |-- train_model.py
+        |-- _visualise_recommendation.py

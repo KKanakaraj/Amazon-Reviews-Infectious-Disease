@@ -1,4 +1,0 @@
-"reviewerID": "A1VEELTKS8NLZB",
-"asin": "616719923X",
-"overall": 4.0,
-"unixReviewTime": 1370044800,
