@@ -45,7 +45,6 @@ data set for testing and validating phase for the recommender system.
 Below is an example of Amazon product Review parser(year wise) code:
 ![Screenshot](Review_Parser.png)
 
-
 ![Screenshot](histogram_year.png)
 
 
@@ -55,6 +54,13 @@ that is in the case:
      1. (2012 - 192903)
      2. (2013 - 466834)
      3. (2014 - 338303)
+
+
+Below is a histogram of Total Recalls per year for FDA Dataset(Enforcement Data)
+![Screenshot](histogram_year_recall.png)
+
+Below is a histogram of Total Recall per year for FDA dataset(Press Release Data)
+![Screenshot](histogram_year_recall_press.png)
         
 # A list of internal milestones up until project milestone 
 
