@@ -5,11 +5,13 @@
 
 Using Natural Language Processing (NLP) on the [Amazon Grocery and Gourmet Food Product reviews](http://jmcauley.ucsd.edu/data/amazon/) database and [FDA food recalls](https://open.fda.gov/downloads/), we want to distinguish products that users like and dislike and by building a time based link prediction to provide best recommendations to the customers. 
 
+Our first plan was to directly relate products from the Amazon datasets to ones of the FDA dataset. This would have provided true-values for possible health threats found in the Amazon dataset which could have been used for training and evaluating our models. However, this would have required us to perform conversions between the ASIN (Amazon Standard Identification Number) and the UPC (Universal Product Code) of products in a large scale. Queries like this are restricted by Amazon and therefore not possible for us in our project. In consequence, we decided to still use the FDA dataset but for another purpose. We want to analyze the language in order to possibly link it to the language used in the Amazon reviews. This shall be done by NLP (natural language processing). However, doing that will not solve our problem of missing labels for the products and reviews. To lable our data, we used a work-around using lexical data of words that can be related to health issues and other features of our data.
+
 In our data story we will try show how a general bad review of a product (i.e. because of personal taste or false expectations of the user) should be distinguished from health related ones. Using the FDA dataset will help us relating reviews to actual recalls of food products. The overall goal is to enhance Amazon's user experience by considering possible health threats. This would encourage retailers to maintain quality standards, could improve quality of food products and eventually enhance health and life quality of people.
 
 # Research questions
 * Can possibly harmful products from Amazon's grocery and food products be detected by analyzing user reviews?
-* Is the FDA recall system effective? Are there hints on possibly dangerous food products that have not been recalled by the FDA?
+* How can we integrate language used in FDA food recalls to distinguish between general dislikes and possible health threats in the Amazon reviews?
 * Can insights from our research be used to improve Amazon's Recommendation system in regard to protecting Amazon users' health?
 
 # Dataset
