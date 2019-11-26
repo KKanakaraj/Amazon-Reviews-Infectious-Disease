@@ -74,24 +74,26 @@ that is in the case:
       
     
 
-* 19.11---**MODEL SELECTION**
+* 26.11---**LABELLING DATA SELECTION**
 
-     1. Explore various NLP approaches to detect and classify possibly harmful products by analyzing user product reviews and FDA Recall Reason text.
+     1. Explore various labelling strategies to annotate possibly harmful products by analyzing user product reviews, affin library (common negative words) and FDA Recall Reason text to serve as ground truth.
      2. Compare time points of health related negative reviews and FDA product recalls.
-     3. Append an additional rating to the positive/negative one that is provided by NLTK
+     3. Append an additional ratings from affin to distinguish positive/negative review by various labelling strategies.
      4. Find the most powerful way to store and look up all our data (Example:  Using High performace graph based libraries like SNAP (Stanford Network Analysis Platform))
-     5. Explore various graph mining Algorithms to group similar users and similar products from the Amazon dataset.
-     6. Construct a Bipartite graph and explore various link prediction algorithms (for example Common Neighbors, Jaccard Coefficient, Adamic-Adar or IR based algorithms)
+     5. Explore various graph mining Algorithms to group similar users and similar products from the Amazon dataset based on postive and negative review and in particular users that bought harmful products.
+     
 
     
-* 26.11---**MODEL VALIDATION**
+* 3.12---**MODEL CREATION AND VALIDATION**
 
-     1. Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
+     1. Build a classifier able to classify reviews as exposing potential health threaths. This will serve as both a way to handle potentially new reviews, but also detect reviews that we potentially missed earlier.  
+     
+     2. Validate the model against the ground truth that is created in previous milestone.
 
-* 31.11---**DEBUGGING AND WRITING THE DATA STORY**
+* 8.12---**DEBUGGING AND WRITING THE DATA STORY**
 
      1. Comment and debug our code
-     2. Write the data story.
+     2. Build a UI  and Write the data story.
 
 
 # Questions for TAa
