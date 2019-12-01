@@ -1,0 +1,108 @@
+# Site settings
+title: Jekyll Theme Consulting
+description: >- # this means to ignore newlines until "baseurl:"
+  A responsive site template designed by <a href="david.mougeolle@moodule.net">DM</a> for <a href="https://github.com/moodule">MOODULE</a>.<br />
+  It’s responsive, built on HTML5/CSS3, and entirely free<br />
+  under the <a href="https://github.com/moodule/jekyll-theme-consulting/blob/master/LICENSE">Creative Commons license</a>.
+
+# Contact information
+street_address: 1234 Somewhere Road
+city: Nashville
+state: TN
+zip_code: 55555
+country: United States of America
+phone: (716) 555-5555
+email: youremailaddress@gmail.com
+
+# Social settings
+500px:
+  url:
+  label: 
+facebook:
+  url: https://github.com/moodule
+  label:
+github:
+  url: https://github.com/moodule
+  label:
+gitlab:
+  url:
+  label:
+instagram:
+  url: https://github.com/moodule
+  label:
+linkedin:
+  url:
+  label:
+medium:
+  url: https://github.com/moodule
+  label:
+pinterest:
+  url:
+  label:
+slack:
+  url:
+  label:
+snapchat:
+  url: https://github.com/moodule
+  label:
+twitter:
+  url: https://github.com/moodule
+  label:
+
+# Optional elements
+logo: /assets/images/logo.png
+favicon: /assets/images/favicon.ico
+legal_terms:
+  url: /en/legal-terms/
+privacy_policy:
+  url: /en/privacy-policy/
+  third_party:
+    hosting: github
+
+# Collections
+collections:
+  redirects:
+    output: true
+    permalink: /:path/
+
+# Default settings
+defaults:
+  -
+    scope:
+      type: "redirects"
+    values:
+      layout: "redirect"
+      lang: "x-default"
+  -
+    scope:
+      path: ""
+    values:
+      menu: default
+  -
+    scope:
+      path: "en"
+    values:
+      lang: "en"
+  -
+    scope:
+      path: "fr"
+    values:
+      lang: "fr"
+
+# Build settings
+permalink: pretty
+markdown: kramdown
+sass:
+  style: compressed
+plugins:
+  - jekyll-seo-tag
+
+# Publication settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://KKanakaraj.github.io/Amazon-Reviews-Infectious-Disease" # the base hostname & protocol for your site, e.g. http://example.com
+author: David Mougeolle
+copyright:
+  holder: Untitled
+  license: CC0
+
+# Exclude from processing
