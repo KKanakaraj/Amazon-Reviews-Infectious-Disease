@@ -106,3 +106,5 @@ copyright:
   license: CC0
 
 # Exclude from processing
+
+theme: jekyll-theme-cayman
