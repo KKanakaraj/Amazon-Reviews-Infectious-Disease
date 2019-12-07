@@ -35,16 +35,16 @@ def create_app(test_config=None):
     def about():
         # call some text from a file which contains information like
         # EPFL, ADA, Data-Saviours, objective of the webpage, ...
-        # return render_template(about.html)
-        return 'one day this should be the About page'
+        return render_template("about.html")
+        #return 'one day this should be the About page'
     
     # a help page that shows how to use the website
     @app.route('/help')
     def helppage():
         # call some text, maybe images or videos from files to explain 
         # how to use the website
-        # return render_template(help.html)
-        return 'another day this will be the Help page'
+        return render_template("helppage.html")
+        #return 'another day this will be the Help page'
     
     # the main page
     @app.route('/main') # maybe just '/' or '/index'
@@ -52,14 +52,17 @@ def create_app(test_config=None):
         # from this page you should reach all other pages and this page
         # should be reachable from all other pages.
         # it does redirection
-        return render_template("index.html")
+        asdf = 8
+        test = 5
+        test_2 = 7 + test
+        return render_template("index.html", test=asdf, test_2=test_2)
         #return 'hopefully this will be the main page some day'
     
     @app.route('/project')
     def project():
         # in this page there should be the desired view of the databases,
         # the search bar and the graph depicting...
-        # return render_template(project.html)
-        return 'on this page there should be our project presentation'
+        return render_template("project.html")
+        #return 'on this page there should be our project presentation'
     
     return app
