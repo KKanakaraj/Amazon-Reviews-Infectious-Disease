@@ -2,9 +2,7 @@ import os
 import pandas as pd
 
 from flask import Flask, g, render_template, Markup, request, url_for
-
-from flask_table import Table, Col, LinkCol
-
+from flask_table import Table, Col
 
 app = Flask(__name__)
 
@@ -19,7 +17,6 @@ def about():
     # call some text from a file which contains information like
     # EPFL, ADA, Data-Saviours, objective of the webpage, ...
     return render_template("about.html")
-    #return 'one day this should be the About page'
 
 # a help page that shows how to use the website
 @app.route('/help')
@@ -27,7 +24,6 @@ def helppage():
     # call some text, maybe images or videos from files to explain 
     # how to use the website
     return render_template("helppage.html")
-    #return 'another day this will be the Help page'
 
 # the main page
 @app.route('/main') # maybe just '/' or '/index'
@@ -120,6 +116,4 @@ def project():
                           sort_by=sort,
                           sort_reverse=reverse)
     return render_template("project.html",db_dummy=table)
-    #return 'hopefully this will be the main page some day')#, db_dummy=obj)
-    #return 'on this page there should be our project presentation'
 
