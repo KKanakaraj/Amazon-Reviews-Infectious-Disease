@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-from flask import Flask, g, render_template, Markup, request, url_for
+from flask import Flask, g, render_template, Markup, request, url_for, redirect
 from flask_table import Table, Col
 
 app = Flask(__name__)
@@ -26,14 +26,17 @@ def helppage():
     return render_template("helppage.html")
 
 # the main page
-@app.route('/main') # maybe just '/' or '/index'
+@app.route('/main', methods=['GET','POST']) # maybe just '/' or '/index'
 def main():
     # from this page you should reach all other pages and this page
     # should be reachable from all other pages.
     # it does redirection
+    if request.method == 'POST':
+        text = request.form['text']
+    
     asdf = 8
     test = 5
-    test_2 = 7 + test
+    test_2 = asdf + test
     return render_template("index.html", test=asdf, test_2=test_2)
 
 all_db_filenames = {"tennis": "atp_matches_2018.csv"}
@@ -65,6 +68,19 @@ def df_to_html(df):
     html = df.to_html()
     return html
 
+def get_df_to_query(name):
+    out_df = pd.read_csv(all_db_filenames[name])
+    return out_df
+
+def dataframe_to_show():
+    in_df = get_df_to_query("tennis")
+    search_query = unique_search_query
+    if search_query is not None:
+        search_query = search_query.lower()
+        out_df = in_df[in_df.winner_name.transform(lambda x: x.lower())==search_query].iloc[:30,10:13].to_dict('records')
+    else:
+        out_df = pd.DataFrame().to_dict('records')
+    return out_df
 
 """
 """
@@ -91,8 +107,7 @@ class Item(object):
 
     @classmethod
     def get_elements(cls):
-        df = read_in_df("tennis")
-        out = df.iloc[520:540,10:13].to_dict('records')
+        out = dataframe_to_show()
         return out # returns a dict of the dataframe
 
     @classmethod
@@ -103,12 +118,18 @@ class Item(object):
             reverse=reverse)
 """
 """
-@app.route('/project')
+@app.route('/project', methods=['GET','POST'])
 def project():
     # in this page there should be the desired view of the databases,
     # the search bar and the graph depicting...
     
     # define table entries via get_elements
+    global unique_search_query 
+    unique_search_query = None
+    
+    if request.method == 'POST':
+        unique_search_query = request.form['text']
+    
     
     sort = request.args.get('sort', 'winner_name')  # returns the sort and id values after the ? in the url, e.g. ?sort=id&direction=asc 
     reverse = (request.args.get('direction', 'asc') == 'desc') # true if the current direction is 'desc' ???
