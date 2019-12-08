@@ -1,31 +1,12 @@
 import os
 import pandas as pd
 
-from flask import Flask, g, render_template
+from flask import Flask, g, render_template, Markup, request, url_for
+
+from flask_table import Table, Col, LinkCol
 
 
 app = Flask(__name__)
-
-#def create_app(test_config=None):
-#    # create and configure the app
-#    app = Flask(__name__, instance_relative_config=True)
-#    app.config.from_mapping(
-#        SECRET_KEY='dev',
-#        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-#    )
-#
-#    if test_config is None:
-#        # load the instance config, if it exists, when not testing
-#        app.config.from_pyfile('config.py', silent=True)
-#    else:
-#        # load the test config if passed in
-#        app.config.from_mapping(test_config)
-#
-#    # ensure the instance folder exists
-#    try:
-#        os.makedirs(app.instance_path)
-#    except OSError:
-#        pass
 
 # a simple page that says hello
 @app.route('/hello')
@@ -59,27 +40,86 @@ def main():
     test_2 = 7 + test
     return render_template("index.html", test=asdf, test_2=test_2)
 
+all_db_filenames = {"tennis": "atp_matches_2018.csv"}
+def read_in_df(db_name):
+    """
+    reads one  csv file and converts to pandas df
+    db_name: string (field of dict "all_db_filenames") 
+    df: pandas df
+    """
+    df = pd.read_csv(all_db_filenames[db_name])
+    return df
+
+def edit_df(df):
+    """
+    takes a pandas df and returns a pandas df
+    if input is not a pandas df, return None
+    template function for other editing functions
+    """
+    if str(type(df)) == "<class 'pandas.core.frame.DataFrame'>":
+        out_df = df
+    else:
+        out_df = None
+    return out_df
+
+def df_to_html(df):
+    """
+    takes a pandas df and convert it to html 
+    """
+    html = df.to_html()
+    return html
+
+
+"""
+"""
+class SortableTable(Table):
+    winner_name = Col('winner_name')
+    winner_hand = Col('winner_hand')
+    winner_ht = Col('winner_ht')
+    allow_sort = True
+
+    def sort_url(self, col_key, reverse=False): # col_key is id, name or description / reverse=true-> direction="desc" and vice versa
+                                                # creates the url for e.g. /projects/name/desc
+        if reverse:
+            direction = 'desc'
+        else:
+            direction = 'asc'
+        return url_for('project', sort=col_key, direction=direction) # 'index' to be replaced by desired url
+
+class Item(object):
+    """ a little fake database """ # defines the columns of the Item/table/dataframe
+    def __init__(self, winner_name, winner_hand, winner_ht):
+        self.winner_name = winner_name
+        self.winner_hand = winner_hand
+        self.winner_ht = winner_ht
+
+    @classmethod
+    def get_elements(cls):
+        df = read_in_df("tennis")
+        out = df.iloc[520:540,10:13].to_dict('records')
+        return out # returns a dict of the dataframe
+
+    @classmethod
+    def get_sorted_by(cls, sort, reverse=False): # sorts something
+        return sorted(
+            cls.get_elements(),
+            key=lambda x: x[str(sort)], #getattr(x, sort),
+            reverse=reverse)
+"""
+"""
 @app.route('/project')
 def project():
     # in this page there should be the desired view of the databases,
     # the search bar and the graph depicting...
-    obj = pd.read_csv("atp_matches_2018.csv")
-    out = obj[["winner_name","loser_name","score","minutes"]].iloc[:10].to_html()
-    return render_template("project.html",db_dummy=out)
+    
+    # define table entries via get_elements
+    
+    sort = request.args.get('sort', 'winner_name')  # returns the sort and id values after the ? in the url, e.g. ?sort=id&direction=asc 
+    reverse = (request.args.get('direction', 'asc') == 'desc') # true if the current direction is 'desc' ???
+    table = SortableTable(Item.get_sorted_by(sort, reverse),
+                          sort_by=sort,
+                          sort_reverse=reverse)
+    return render_template("project.html",db_dummy=table)
     #return 'hopefully this will be the main page some day')#, db_dummy=obj)
     #return 'on this page there should be our project presentation'
-        
-    #pd.read_csv("databases/atp_matches_2018.csv")
-    
-#    all_db_filenames = {"tennis": "atp_matches_2018.csv"}
-#    db_path = "databases/"
-#    def display_df_head(db_name):
-#    
-#        df = pd.read_csv(db_path+all_db_filenames[str(db_name)])
-#        df_html = df.head(10).to_html()
-#    
-#        return df_html
-    
-#    return app
-
 
