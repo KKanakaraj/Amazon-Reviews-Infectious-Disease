@@ -6,39 +6,13 @@ from flask_table import Table, Col
 
 app = Flask(__name__)
 
-# a simple page that says hello
-@app.route('/hello')
-def hello():
-    return 'Hello, World!'
-
-# an About page
-@app.route('/about')
-def about():
-    # call some text from a file which contains information like
-    # EPFL, ADA, Data-Saviours, objective of the webpage, ...
-    return render_template("about.html")
-
-# a help page that shows how to use the website
-@app.route('/help')
-def helppage():
-    # call some text, maybe images or videos from files to explain 
-    # how to use the website
-    return render_template("helppage.html")
-
-# the main page
-@app.route('/main', methods=['GET','POST']) # maybe just '/' or '/index'
-def main():
-    # from this page you should reach all other pages and this page
-    # should be reachable from all other pages.
-    # it does redirection
-    if request.method == 'POST':
-        text = request.form['text']
+#%% FUNCTIONS
+def get_autocomplete_list(db_name):
+    df = read_in_df(db_name)
+    df = list(df.winner_name.unique())
+    df = [x.lower() for x in df]
+    return df
     
-    asdf = 8
-    test = 5
-    test_2 = asdf + test
-    return render_template("index.html", test=asdf, test_2=test_2)
-
 all_db_filenames = {"tennis": "atp_matches_2018.csv"}
 def read_in_df(db_name):
     """
@@ -118,6 +92,43 @@ class Item(object):
             reverse=reverse)
 """
 """
+
+
+#%% WEB-PAGES
+
+# a simple page that says hello
+@app.route('/hello')
+def hello():
+    return 'Hello, World!'
+
+# an About page
+@app.route('/about')
+def about():
+    # call some text from a file which contains information like
+    # EPFL, ADA, Data-Saviours, objective of the webpage, ...
+    return render_template("about.html")
+
+# a help page that shows how to use the website
+@app.route('/help')
+def helppage():
+    # call some text, maybe images or videos from files to explain 
+    # how to use the website
+    return render_template("helppage.html")
+
+# the main page
+@app.route('/main', methods=['GET','POST']) # maybe just '/' or '/index'
+def main():
+    # from this page you should reach all other pages and this page
+    # should be reachable from all other pages.
+    # it does redirection
+    if request.method == 'POST':
+        text = request.form['text']
+    
+    asdf = 8
+    test = 5
+    test_2 = asdf + test
+    return render_template("index.html", test=asdf, test_2=test_2)
+
 @app.route('/project', methods=['GET','POST'])
 def project():
     # in this page there should be the desired view of the databases,
