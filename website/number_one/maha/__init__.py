@@ -1,10 +1,11 @@
 import os
 import pandas as pd
 
-from flask import Flask, g, render_template, Markup, request, url_for, redirect
+from flask import Flask, g, render_template, Markup, request, url_for, redirect, session
 from flask_table import Table, Col
 
 app = Flask(__name__)
+app.secret_key = "asdf"
 
 #%% FUNCTIONS
 def get_autocomplete_list(db_name):
@@ -48,7 +49,7 @@ def get_df_to_query(name):
 
 def dataframe_to_show():
     in_df = get_df_to_query("tennis")
-    search_query = unique_search_query
+    search_query = session["last_search_query"]
     if search_query is not None:
         search_query = search_query.lower()
         out_df = in_df[in_df.winner_name.transform(lambda x: x.lower())==search_query].iloc[:30,10:13].to_dict('records')
@@ -135,14 +136,19 @@ def project():
     # the search bar and the graph depicting...
     
     # define table entries via get_elements
-    global unique_search_query 
-    unique_search_query = None
     
+    if (('session' in globals()) or ('session' in locals())): 
+        if "last_search_query" in session:
+            pass
+        else:
+            session["last_search_query"] = None
+    else:
+        session["last_search_query"] = None
+        
     if request.method == 'POST':
-        unique_search_query = request.form['text']
+        session["last_search_query"] = request.form['text']
     
-    
-    sort = request.args.get('sort', 'winner_name')  # returns the sort and id values after the ? in the url, e.g. ?sort=id&direction=asc 
+    sort = request.args.get('sort', 'winner_hand')  # returns the sort and id values after the ? in the url, e.g. ?sort=id&direction=asc 
     reverse = (request.args.get('direction', 'asc') == 'desc') # true if the current direction is 'desc' ???
     table = SortableTable(Item.get_sorted_by(sort, reverse),
                           sort_by=sort,
