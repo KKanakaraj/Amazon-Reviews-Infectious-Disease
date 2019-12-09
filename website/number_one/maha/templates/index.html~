@@ -35,8 +35,10 @@
     <p>sit malesuada lacus pellus parturpiscing. Pellenterdumat maecenatoque cras a magna nibh et quis diam ames et. Laoremvolutpat ac dolor eget eget temper lacus vestibus velit lacus venean. Magnaipsum tellus morbi leo aliquat nulla convallis pellentesque.</p>
   </div>
   <div id="footer">
-    <p>Project presentation webpage for ADA course 2019 at EPFL.</p>
-    <p>Contact: <a href="mailto:barney@example.com">mail@example.ch</a> | <a href="https://github.com/KKanakaraj/Amazon-Reviews-Infectious-Disease">GitHub Folder</a</p>
+    <hr width="75%" size="5" align="left" noshade>
+    <p><a href="https://github.com/KKanakaraj/Amazon-Reviews-Infectious-Disease">Project</a> presentation webpage for ADA course 2019 at EPFL.</p>
+    <p>Contact: <a href="mailto:barney@example.com">mail@example.ch</a></p>
+
   </div>
 </div>
 </body>
