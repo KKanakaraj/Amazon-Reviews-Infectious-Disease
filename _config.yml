@@ -22,9 +22,8 @@ title: Make Amazon healthy again!
 email: asdf@jklö.ch
 description: >- # this means to ignore newlines until "baseurl:"
   Data Story about health threat related Amazon reviews.
-baseurl: ""
-url: "kkanakaraj.github.io"
-permalink: /:title
+baseurl: "/Amazon-Reviews-Infectious-Disease/"
+url: ""
 
 
 #baseurl: "https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/" # the subpath of your site, e.g. /blog
