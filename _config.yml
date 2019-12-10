@@ -22,7 +22,7 @@ title: Make Amazon healthy again!
 email: asdf@jklö.ch
 description: >- # this means to ignore newlines until "baseurl:"
   Data Story about health threat related Amazon reviews.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: KKanakaraj
 
