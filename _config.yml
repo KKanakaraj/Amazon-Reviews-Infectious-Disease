@@ -19,11 +19,11 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Make Amazon healthy again!
-website: https://github.com/KKanakaraj/Amazon-Reviews-Infectious-Disease/tree/master
+email: asdf@jklö.ch
 description: >- # this means to ignore newlines until "baseurl:"
   Data Story about health threat related Amazon reviews.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "Amazon-Reviews-Infectious-Disease" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: KKanakaraj
 
 # Build settings
