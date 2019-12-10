@@ -22,7 +22,7 @@ title: Make Amazon healthy again!
 email: asdf@jklö.ch
 description: >- # this means to ignore newlines until "baseurl:"
   Data Story about health threat related Amazon reviews.
-baseurl: "/Amazon-Reviews-Infectious-Disease/"
+baseurl: "Amazon-Reviews-Infectious-Disease"
 url: ""
 
 
