@@ -1,4 +1,4 @@
-I"s<p>This is the website for the data story of our group project in the <a href="https://dlab.epfl.ch/teaching/fall2019/cs401/">Applied Data Analysis</a> course at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland in Autumn semester 2019.</p>
+I"�<p>This is the website for the data story of our group project in the <a href="https://dlab.epfl.ch/teaching/fall2019/cs401/">Applied Data Analysis</a> course at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland in Autumn semester 2019.</p>
 
 <p>We are the group “Data Saviors”:</p>
 <ul>
@@ -8,7 +8,7 @@
   <li><a href="https://github.com/nikoro1904">Nikolas Roßkopf</a></li>
 </ul>
 
-<p>For our project, we had different food and nutrition related datasets to choose from. We decided to work on a one of Amazon Reviews of Food and Grocery products <strong>LINK</strong> purchased in the US from <strong>?</strong> to <strong>?</strong>. We analyzed various aspects with the overall goal of improving the Amazon Recommendation system in regard to detecting possible health threats for customers.</p>
+<p>For our project, we had different food and nutrition related datasets to choose from. We decided to work on a one of <a href="http://jmcauley.ucsd.edu/data/amazon/">Amazon Reviews of Food and Grocery products</a> purchased in the US from <strong>?</strong> to <strong>?</strong>. We analyzed various aspects with the overall goal of improving the Amazon Recommendation system in regard to detecting possible health threats for customers.</p>
 
 <p>This Website is hosted by <a href="https://pages.github.com/">Github-Pages</a> and was built using <a href="https://jekyllrb.com/">Jekyll</a>. The theme we used is <a href="https://github.com/jekyll/minima">Minima</a>.</p>
 

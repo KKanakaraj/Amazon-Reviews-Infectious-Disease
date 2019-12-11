@@ -27,6 +27,8 @@ minima:
 #header_pages:
 # - about.md
 
+baseurl: "amazon-reviews-infectious-disease"
+
 # Build settings
 theme: minima
 
