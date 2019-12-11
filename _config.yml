@@ -1,10 +1,8 @@
 title: Make Amazon Healthy Again!
-author: GitHub User
-email: your-email@domain.com
-description: > # this means to ignore newlines until "show_excerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+author: Data Saviors
+repo: https://github.com/KKanakaraj/Amazon-Reviews-Infectious-Disease
+description: >- # this means to ignore newlines until "show_excerpts:"
+  Data Story of the 2019 Applied Data Analysis Course at EPFL, Switzerland.
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
@@ -13,31 +11,16 @@ show_excerpts: false # set to true to show excerpts on the homepage
 minima:
   date_format: "%b %-d, %Y"
 
-  # generate social links in footer
-  social_links:
-    twitter: jekyllrb
-    github:  jekyll
-    rss: rss
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # linkedin: jekyll
-    # pinterest: jekyll
-    # youtube: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-    # keybase: jekyll
+# generate social links in footer
+#social_links:
+#  github: jekyll
 
     # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
+#    # mastodon:
+#    # - username: jekyll
+#    #   instance: example.com
+#    # - username: jekyll2
+#    #   instance: example.com
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up

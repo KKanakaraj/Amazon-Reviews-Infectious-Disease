@@ -9,7 +9,7 @@ layout: default
 
   {{ content }}
 
-  {%- if 0 > 0 -%}
+  {%- if site.posts.size > 0 -%}
 
     <ul class="post-list">
       {%- for post in site.posts -%}
@@ -27,6 +27,8 @@ layout: default
       </li>
       {%- endfor -%}
     </ul>  
+    
+    <img src="maha_banner.jpeg" alt="Fruits" width="500" height="600"> 
 
     <p class="feed-subscribe">
       <a href="{{ 'feed.xml' | relative_url }}">

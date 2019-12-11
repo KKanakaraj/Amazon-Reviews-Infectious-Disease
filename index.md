@@ -7,3 +7,7 @@
 #
 layout: home
 ---
+
+![Image of Fruits](assets/maha_banner.jpeg "Vegetable Lot from pexels.com/@pixabay")
+
+# Schalke 04 <3
