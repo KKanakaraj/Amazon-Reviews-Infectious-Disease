@@ -16,7 +16,7 @@ For our project, we had different food and nutrition related datasets to choose 
 
 This Website is hosted by [Github-Pages](https://pages.github.com/) and was built using [Jekyll](https://jekyllrb.com/). The theme we used is [Minima](https://github.com/jekyll/minima).
 
-![Apples](/assets/maha_apples.jpeg  "from pexels.com, photographer: margemedia.com")
+![Apples](assets/maha_apples.jpeg  "from pexels.com, photographer: margemedia.com")
 
 Lausanne, Switzerland. 10 December 2019.
 
