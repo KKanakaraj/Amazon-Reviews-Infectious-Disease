@@ -1,11 +1,11 @@
-I"�<p>This is the website for the data story of our group project in the <a href="https://dlab.epfl.ch/teaching/fall2019/cs401/">Applied Data Analysis</a> course at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland in Autumn semester 2019.</p>
+I"m<p>This is the website for the data story of our group project in the <a href="https://dlab.epfl.ch/teaching/fall2019/cs401/">Applied Data Analysis</a> course at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland in Autumn semester 2019.</p>
 
-<p>We are the group “Data Saviors”:</p>
+<p>We are the group “Data Saviors”:*</p>
 <ul>
-  <li><a href="https://github.com/KKanakaraj">Kamalesh Kumar Kanakaraj</a></li>
-  <li><a href="https://github.com/KeijiroTajima">Keijiro Tajima</a></li>
-  <li><a href="https://github.com/FaresAh">Fares Ahmed</a></li>
-  <li><a href="https://github.com/nikoro1904">Nikolas Roßkopf</a></li>
+  <li><a href="https://github.com/KKanakaraj">Kamalesh Kumar Kanakaraj</a> (project proposal, initial nlp, affin and exploratory data analysis)*</li>
+  <li><a href="https://github.com/KeijiroTajima">Keijiro Tajima</a> (health-related word categorization from FDA dataset, review scoring using affin)*</li>
+  <li><a href="https://github.com/FaresAh">Fares Ahmed</a> (data labelling using empath and classification)*</li>
+  <li><a href="https://github.com/nikoro1904">Nikolas Roßkopf</a> (data story)</li>
 </ul>
 
 <p>For our project, we had different food and nutrition related datasets to choose from. We decided to work on a one of <a href="http://jmcauley.ucsd.edu/data/amazon/">Amazon Reviews of Food and Grocery products</a> purchased in the US from <strong>?</strong> to <strong>?</strong>. We analyzed various aspects with the overall goal of improving the Amazon Recommendation system in regard to detecting possible health threats for customers.</p>
