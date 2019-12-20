@@ -109,10 +109,30 @@ Each review now has a "tokenized review" built from its stemmed, stopword-remove
 
 After training, we tested the classifier on the remaining labelled reviews. This yielded a quite impressing [Accuracy](https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers) score of 88.6%. We are very happy with that so we used the classifier for classifying the remaining about 89% of the dataset.
 
-**Overall, this resulted in 33,900 reviews classified as dangerous what is 2.62% of all reviews. From the labelling using the empath lexicon we had 20,235 dangerous reviews, so our classifier detected more than 13,000 additional ones. **
+**Overall, this resulted in 33,900 reviews classified as dangerous what is 2.62% of all reviews. From the labelling using the empath lexicon we had 20,235 dangerous reviews, so our classifier detected more than 13,000 additional ones.**
+
+<center><img src="assets/plots/hist_safe_dangerous.png" alt="Histogram of safe and dangerous reviews" width="80%" /></center>
+
+### What can we learn?
+First of all, if we trust our results, we can state that food products on Amazon seem to be very safe. 2.6% of all reviews is not much, therefore one definitely must not worry about food quality in general. However, an algorithm to detect such potentially dangerous outliers might still be helpful.
+
+When comparing the review texts of products classified as dangerous with the lists of words we generated before labelling (see above), we can observe that words related to pathogens and symptoms, respectively, seem to be quite similar as depicted by the following two wordclouds. For future considerations of building a classifier it may therefore be reasonable to not distinguish between those categories.
+
+<center><img src="assets/plots/wordcloud_danger_pathogens.png" alt="Wordcloud of words in pathogen word list and dangerous reviews" width="70%" /></center>
+
+<center><img src="assets/plots/wordcloud_danger_symptoms.png" alt="Wordcloud of words in symptom word list and dangerous reviews" width="70%" /></center>
+
+The following two wordclouds show words frequently occuring in the list of food names as well as in reviews classified as dangerous and safe, respectively. We can draw several conclusions from them: Firstly, this list of food words seems strange as it obviously contains words unrelated to food, e.g. "rat" or "money". Some other words, however, might show which food products are more often involved in potential health threates, e.g. "sugar", "tea" and "fruit" and "water".  
+
+On the other hand, food that is frequent in safe reviews are e.g. ...  
+This might be useful as a guide showing which products are more or less likely to be safely consumed.
+
+<center><img src="assets/plots/wordcloud_danger_food.png" alt="Wordcloud of words in food word list and dangerous reviews" width="70%" /></center>
+
+<center><img src="assets/plots/wordcloud_safe_food.png" alt="Wordcloud of words in food word list and safe reviews" width="70%" /></center>
 
 ### Contributors
-This data story was created by the group "Data Saviors". More detailed descriptions of individual contributions see the About page.
+This data story was created by the group "Data Saviors". For more detailed descriptions of individual contributions see the [About page](https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/about/).
 
 ### Bibliography
 * Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
