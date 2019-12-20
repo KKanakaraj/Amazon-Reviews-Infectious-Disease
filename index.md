@@ -24,6 +24,17 @@ However, one could even go a step further by trying to detect potential health i
 
 ### What our dataset is about
 
+This is an example of reviews and overall ratings in our dataset:
+
+| index | reviewText  |   overall |
+|--------:|:------|-----|
+|375427 | If you have ever had a waffle from Liege,Belgium then you will want this sugar.  |         5 |
+| 1077862 | Received this item and every box in there was expired and we're talking REALLY expired... going back to May 2012 and it's now Oct 2012.  PLUS, there's a recall out on all Cascadian Farm Granola Bars that are either expired and/or contain peanuts.  I actually received notice of this recall from Amazon's Safety Dept. the same day I placed the order.  I thought they would at least check this order BEFORE it went out to insure all items were in compliance, but no such luck.  The recall by the FDA said you are to THROW THEM AWAY and this is exactly what I did.  (shortened)|         1 |
+|  625771 | These are amazing. They turn out great every time. They do taste better than the overpriced prepackaged ones. Now I can let my family share in this healthy treat instead of keeping them all to myself. This will definitely be a repeat purchase I will buy at least once a month.      |         5 |
+|  139774 | My medical school was a little short on &#34;standardized patients&#34; for us to learn rectal exams on this week, so I think it was the professors who left one of these bags out for my class to snack from. By the afternoon they had a lot of clean colons at their disposal for teaching purposes. Maybe this is why we didn't learn about lycasin in biochemistry class... |         1 |  
+
+
+
 The [main dataset](http://jmcauley.ucsd.edu/data/amazon/) we used contained Amazon reviews of food products from several years. We joined this dataset with [another one](http://jmcauley.ucsd.edu/data/amazon/) containing meta information about the products. Each datapoint had information about the reviewer's ID, the product ID, the date of purchase, the review text itself and the overall rating the customer gave the product (an integer score going from one star (worst option) to five stars (best option). The overall 1.3 million reviews in our dataset do mainly come from 2012, 2013 and 2014. Though our analysis cannot claim for actuality, we can assume the data's characteristics (i.e. the length or the the vocabulary used in the reviews) has not changed since then. Conclusions about the potential danger of individual products, however, can not be made.
 
 <center><img src="assets/plots/histogram_year.png" alt="Reviews per year in dataset" width="80%" /></center>
@@ -43,7 +54,7 @@ What was expectable and can nicely be shown in the following histogram is the di
 
 <center><img src="assets/plots/zipf.png" alt="Distribution of word frequencies in reviews" width="80%" /></center>
 
-## Classification of reviews
+## Labelling of reviews
 
 Our goal was now to build a model and train a supervised machine learning based classifier on our dataset of Amazon reviews in order to be able to classify reviews as either "potentially health threatening" (or short "dangerous") or as "probably not health threatening" (or short "safe"). The most challenging part of this was to distinguish between general dislikes and health concerning dislikes.
 
@@ -94,12 +105,11 @@ to
 
 	['order', 'spongebob', 'slipper', 'got', 'John'].
 
-#### FDA datasets
-find frequent words in both FDA datasets  
+Each review now has a "tokenized review" built from its stemmed, stopword-removed and tokenized review text. To make these handable by a Machine Learning algorithm, we converted them into vectors using Word2Vec. Word2Vec transforms text objects to multidimensional numerical vectors. Semantically similar words get similar vectors inside the vectorspace. We split all previously labelled reviews in 90%-10% training/validation sets. Because there were much less reviews labelled as "dangerous" compared to "safe" ones, we made sure the ratio of dangerous to safe reviews in all splits was similar. 
 
-We analyzed the notes coming with the product recalls from FDA and tried to find specific vocabulary which is used in health threat related issues.  
-In the following wordcloud it is clearly visible that this will still remain a challenging task, as there are general groceries like "egg" or "peanuts" and specialist terms like "monocytogenes" as well.
-<center><img src="assets/plots/C3_wordcloud_press" alt="Most frequent words in FDA press releases" width="80%" /></center>
+After training, we tested the classifier on the remaining labelled reviews. This yielded a quite impressing [Accuracy](https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers) score of 88.6%. We are very happy with that so we used the classifier for classifying the remaining about 89% of the dataset.
+
+**Overall, this resulted in 33,900 reviews classified as dangerous what is 2.62% of all reviews. From the labelling using the empath lexicon we had 20,235 dangerous reviews, so our classifier detected more than 13,000 additional ones. **
 
 ### Contributors
 This data story was created by the group "Data Saviors". More detailed descriptions of individual contributions see the About page.
