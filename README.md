@@ -1,5 +1,15 @@
 # Improving the user's trust in the Amazon Recommendation System
 
+#### Website:
+[https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/](https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/)
+
+#### Members of the group "Data Saviors":
+* [Kamalesh Kumar Kanakaraj](https://github.com/KKanakaraj) (project proposal, initial nlp, affin and exploratory data analysis)
+* [Keijiro Tajima](https://github.com/KeijiroTajima) (health-related word categorization from FDA dataset, review scoring using affin)
+* [Fares Ahmed](https://github.com/FaresAh) (data labelling using empath and classification)
+* [Nikolas Roßkopf](https://github.com/nikoro1904) (post classification analysis and data story)
+
+
 # Abstract
  Today world has become a highly connected place in which networks are associated in our day-to-day lives. As we begin to enter the new era of Big Data, the contemporary Recommender System faces greatly increased data size and complexities. Previous computational models and experience on small data may not hold today, thus, how to build an efficient and robust system and how to extract meaningful knowledge from the massive data becomes an important issue and attracts increasing attention on it. For a user it is getting harder to reach the relevant food product items according to his/her personal taste and preferences. It could be better and convenient, if the websites give them some smart advices and also could think from customer‘s perspective of view and provide products that customers never thought but will love when they saw them. In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by analyzing the reviews of users. 
 
@@ -13,7 +23,6 @@ In our data story we will try show how a general bad review of a product (i.e. b
 * Can possibly harmful products from Amazon's grocery and food products be detected by analyzing user reviews?
 * How can we integrate language used in FDA food recalls to distinguish between general dislikes and possible health threats in the Amazon reviews?
 * Can insights from our research be used to improve Amazon's Recommendation system in regard to protecting Amazon users' health?
-
 
 # Dataset
 
@@ -48,7 +57,6 @@ data set for testing and validating phase for the recommender system.
 Below is an example of Amazon product Review parser(year wise) code:
 ![Screenshot](Review_Parser.png)
 
-
 ![Screenshot](histogram_year.png)
 
 
@@ -58,6 +66,13 @@ that is in the case:
      1. (2012 - 192903)
      2. (2013 - 466834)
      3. (2014 - 338303)
+
+
+Below is a histogram of Total Recalls per year for FDA Dataset(Enforcement Data)
+![Screenshot](histogram_year_recall.png)
+
+Below is a histogram of Total Recall per year for FDA dataset(Press Release Data)
+![Screenshot](histogram_year_recall_press.png)
         
 # A list of internal milestones up until project milestone 
 
@@ -77,31 +92,61 @@ that is in the case:
       
     
 
-* 26.11---**LABELLING DATA SELECTION**
+* 19.11---**MODEL SELECTION**
 
-     1. Explore various labelling strategies to annotate possibly harmful products by analyzing user product reviews, affin library (common negative words) and FDA Recall Reason text to serve as ground truth.
+     1. Explore various NLP approaches to detect and classify possibly harmful products by analyzing user product reviews and FDA Recall Reason text.
      2. Compare time points of health related negative reviews and FDA product recalls.
-     3. Append an additional ratings from affin to distinguish positive/negative review by various labelling strategies.
+     3. Append an additional rating to the positive/negative one that is provided by NLTK
      4. Find the most powerful way to store and look up all our data (Example:  Using High performace graph based libraries like SNAP (Stanford Network Analysis Platform))
-     5. Explore various graph mining Algorithms to group similar users and similar products from the Amazon dataset based on postive and negative review and in particular users that bought harmful products.
-     
+     5. Explore various graph mining Algorithms to group similar users and similar products from the Amazon dataset.
+     6. Construct a Bipartite graph and explore various link prediction algorithms (for example Common Neighbors, Jaccard Coefficient, Adamic-Adar or IR based algorithms)
 
     
-* 3.12---**MODEL CREATION AND VALIDATION**
+* 26.11---**MODEL VALIDATION**
 
-     1. Build a classifier able to classify reviews as exposing potential health threaths. This will serve as both a way to handle potentially new reviews, but also detect reviews that we potentially missed earlier.  
-     
-     2. Validate the model against the ground truth that is created in previous milestone.
+     1. Generates recommendations for all users and Analyze the recommendations: Calculates accuracy of the recommendations by comparing against ground truth (for example Run the algorithm on the training set, and test it on the validation set). 
 
-* 8.12---**DEBUGGING AND WRITING THE DATA STORY**
+* 31.11---**DEBUGGING AND WRITING THE DATA STORY**
 
      1. Comment and debug our code
-     2. Build a UI  and Write the data story.
+     2. Write the data story.
 
 
 # Questions for TAa
-* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided ?
+* We would like to utilize the cluster to check for the performance of our code. Is there any guideline that can be provided?
 
 * Can we alter some of our subgoals without affecting the main goal.
 
-* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough ?  
+* Data sparsity is a problem in amazon dataset, we will try to choose appropriate algorithms and reason our work, But what if the the predictions are not good enough? 
+
+
+
+
+
+=======
+# Project Structure
+        Project
+        |-- _data
+        │   |-- __init__.py
+        │   |-- cli.py
+        │   |-- lib.py
+        |
+        |-- _notebooks
+        |-- _docs
+        │   |-- __init__.py
+        │   |-- test_fact.py
+        |-- _tox.ini
+        |-- _setup.py
+        |-- _results
+        |-- _requirements.txt
+        |-- _src
+        |   |-- d00_utils
+        |   |-- d01_data
+        |   |-- d02_intermediate
+        |   -- d03_processing
+        |   |-- d04_model_evaluation
+        |   |-- d05_reporting
+        |   |-- d06_visualization
+        |-- _modelling
+            |-- train_model.py
+        |-- _visualise_recommendation.py
