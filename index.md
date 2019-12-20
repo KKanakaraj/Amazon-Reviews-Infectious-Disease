@@ -37,7 +37,7 @@ At least the following boxplot shows that the number of words per review might b
 
 <center><img src="assets/plots/B2b_boxplot" alt="Boxplot of words per review per rating" width="50%" /></center>
 
-That wasn't necessarily expectable, if one takes a look at the following histogram of review length frequency. As one can see, does the distribution follow a power law. Most reviews are very short and longer ones are rare, but not very rare.
+That wasn't necessarily expectable, if one takes a look at the following histogram of review length frequency. As one can see, the distribution does follow a power law. Most reviews are very short and longer ones are rare, but not very rare.
 
 <center><img src="assets/plots/B2a_bar" alt="Histogram of review lengths" width="70%" /></center>
 
@@ -45,11 +45,33 @@ What was expectable and can nicely be shown in the following histogram is the di
 
 <center><img src="assets/plots/B6_zipf" alt="Distribution of word frequencies in reviews" width="70%" /></center>
 
-To be able to label the reviews in the dataset as potentially health threatening or not, we tried to link the corresponding products in two other datasets of food recalls and press releases of the US American Food and Drug Administration (FDA). Unfortunately, this was not possible as Amazon and the FDA use different Product IDs which cannot be matched (free of charge). In consequence, we had to find a work around. 
+Our goal was now to build a model and train a supervised machine learning based classifier on our dataset of Amazon reviews in order to be able to classify reviews as either "potentially health threatening" (or short "dangerous") or as "probably not health threatening" (or short "safe"). The most challenging part of this was to distinguish between general dislikes and health concerning dislikes.
 
-In consequence, we used several approaches for labelling the reviews:
+Training the classifier means showing many many examples of reviews and thereby telling it whether they are dangerous or safe. As the model our classifier is based on we chose a [Random Forest](https://en.wikipedia.org/wiki/Random_forest) algorithm. A Random Forest is basically a bunch of many decision trees, each is trained on a different bootstrap sample of the whole data. A majority vote among all trees then classifies the input.
 
-#### empath C1
+However, for training the classifier, we need labeled data. To be able to label the reviews in the dataset as potentially health threatening or not, we thought of different approaches:
+* One approach was to use [AFINN Sentiment Analysis](https://darenr.github.io/afinn/) (Rowe et al, 2011). Afinn is a python library for [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis), i.e. it classifies a text document as positive, neutral or negative by summing up scores or individual words. E.g. the word "horrible" has a score of -3, the word "inconvenient" has a score of -2, meaning it is less severe than "horrible". Afinn also contains health related words (e.g. "headache" or "vomit"), nevertheless we chose not to use it for labelling the reviews. Sentiment analysis is obviously made for distinguishing general emotion and not for assessing health issues in text.
+* The second idea was to link the reviews to corresponding products in two other datasets of food recalls and press releases of the US American [Food and Drug Administration](https://www.fda.gov/) (FDA). This would have provided us very reliable labels made by professionals. Unfortunately, it was not possible as Amazon and the FDA use different Product IDs which cannot be matched (free of charge). In consequence, we had to find a work around:
+* From various sources (see below) we imported words related to food, food safety, symptoms and pathogens (e.g. bacteria like salmonella)
+
+| **Pathogen and disease words (e.g. salmonella)** |  |
+| --- | --- |
+| EU safe food | [Link](https://www.safefood.eu/SafeFood/media/SafeFoodLibrary/Documents/Education/safefood%20for%20life/NI/section2_1.pdf) |
+| Foodsafety.gov bacteria and viruses words | [Link](https://www.foodsafety.gov/food-poisoning/bacteria-and-viruses) |
+| CDC foodborne illness words | [Link](https://www.cdc.gov/foodsafety/diseases/index.html) |
+| CDC national outbreak reporting system | [Link](https://wwwn.cdc.gov/norsdashboard/) |
+| **Symptom words (e.g. embolism)** |  |
+| EU safe food | [Link](https://www.safefood.eu/SafeFood/media/SafeFoodLibrary/Documents/Education/safefood%20for%20life/NI/section2_1.pdf) |
+| Foodsafety.gov symptom words: | [Link](https://www.foodsafety.gov/food-poisoning) |
+| Symptom dictionary  | [Link](https://github.com/sekharvth/symptom-disease) |
+| **Food words (e.g. egg)** |  |
+| Exhaustive list of all foods & food items in the world | [Link](https://github.com/CurtisGrayeBabin/List-of-all-Foods) |
+
+By analyzing these sources together with the FDA datasets we created lists of words that relate to either pathogens and diseases or symptoms, respectively. However, we decided not to use them for labelling but for post classification analysis as they contain actual threats like the names of bacteria and not vocabulary that might be used to describe their effects.
+
+* The fourth approach, which we used in the end, is based on [Empath](https://github.com/Ejhfast/empath-client). Empath is a python library for sentiment analysis and topic detection. It was created by Fast et al. (2016). 
+
+)### empath C1
 create  lexicon of words related to "health", "danger", "food poisoning"  
 new column: health score  
 new column: danger: healthScore > 0 AND rating smaller than 4  
@@ -86,6 +108,9 @@ take all so far unlabelled reviews (danger=NaN), classify them
 merge them into the df from previously labelled/classified reviews
 
 
+### Bibliography
+* Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
+* Fast E, Chen B, Bernstein MS. Empath: Understanding topic signals in large-scale text. In: Conference on Human Factors in Computing Systems - Proceedings. ; 2016. doi:10.1145/2858036.2858535
 
 
 
