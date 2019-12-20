@@ -3,6 +3,13 @@
 #### Website:
 [https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/](https://kkanakaraj.github.io/Amazon-Reviews-Infectious-Disease/)
 
+####Members of the group "Data Saviors":
+* [Kamalesh Kumar Kanakaraj](https://github.com/KKanakaraj) (project proposal, initial nlp, affin and exploratory data analysis)
+* [Keijiro Tajima](https://github.com/KeijiroTajima) (health-related word categorization from FDA dataset, review scoring using affin)
+* [Fares Ahmed](https://github.com/FaresAh) (data labelling using empath and classification)
+* [Nikolas Roßkopf](https://github.com/nikoro1904) (post classification analysis and data story)
+
+
 # Abstract
  Today world has become a highly connected place in which networks are associated in our day-to-day lives. As we begin to enter the new era of Big Data, the contemporary Recommender System faces greatly increased data size and complexities. Previous computational models and experience on small data may not hold today, thus, how to build an efficient and robust system and how to extract meaningful knowledge from the massive data becomes an important issue and attracts increasing attention on it. For a user it is getting harder to reach the relevant food product items according to his/her personal taste and preferences. It could be better and convenient, if the websites give them some smart advices and also could think from customer‘s perspective of view and provide products that customers never thought but will love when they saw them. In our project, we aim at improving the Amazon Product Recommendation System for large scale Amazon groceries and gourmet food dataset by analyzing the reviews of users. 
 
