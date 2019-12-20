@@ -22,20 +22,20 @@ Since it was founded in 1994, Amazon is constantly growing. More and more custom
 
 However, one could even go a step further by trying to detect potential health issues before the FDA even took a look at it. We propose that it may be possible to detect potentially hazardeous food products on Amazon by analyzing customer reviews. In the following article, we are going to show several approaches to classify Amazon reviews of food products in regard to whether their product being a potential health threat or not.
 
-#### What our dataset is about
+### What our dataset is about
 
-The main dataset we used contained Amazon reviews of food products from several years. Each datapoint had information about the reviewer's ID, the product ID, the date of purchase, the review text itself and the overall rating the customer gave the product (an integer score going from one star (worst option) to five stars (best option). The reviews in our dataset do mainly come from 2012, 2013 and 2014. Though our analysis cannot claim for actuality, we can assume the data's characteristics (i.e. the length or the the vocabulary used in the reviews) has not changed since then. Conclusions about the potential danger of individual products, however, can not be made.
+The main dataset we used contained Amazon reviews of food products from several years. Each datapoint had information about the reviewer's ID, the product ID, the date of purchase, the review text itself and the overall rating the customer gave the product (an integer score going from one star (worst option) to five stars (best option). The overall 1.3 million reviews in our dataset do mainly come from 2012, 2013 and 2014. Though our analysis cannot claim for actuality, we can assume the data's characteristics (i.e. the length or the the vocabulary used in the reviews) has not changed since then. Conclusions about the potential danger of individual products, however, can not be made.
 
 <center><img src="assets/plots/histogram_year.png" alt="Reviews per year in dataset" width="60%" /></center>
 
 A good measurement for the overall satisfaction of customers with a product probably is the rating, given in one to five stars. As we can see, most ratings were excellent. That's not ideal for us as we want to focus on negative reviews, even on particularly health related ones. 
 
 
-<center><img src="assets/plots/B1_bar" alt="Barchart of Reviews per Overall Rating" width="50%" /></center>
+<center><img src="assets/plots/hist_overall_rating.png" alt="Barchart of Reviews per Overall Rating" width="50%" /></center>
 
 At least the following boxplot shows that the number of words per review might be sufficient to perform text analysis methods on them. 
 
-<center><img src="assets/plots/B2b_boxplot" alt="Boxplot of words per review per rating" width="50%" /></center>
+<center><img src="assets/plots/boxplot_rev_length_rating.png" alt="Boxplot of words per review per rating" width="50%" /></center>
 
 That wasn't necessarily expectable, if one takes a look at the following histogram of review length frequency. As one can see, the distribution does follow a power law. Most reviews are very short and longer ones are rare, but not very rare.
 
@@ -43,13 +43,16 @@ That wasn't necessarily expectable, if one takes a look at the following histogr
 
 What was expectable and can nicely be shown in the following histogram is the distribution of individual word frequencies over the whole dataset. It was observed that this distribution commonly follows a power law which is called Zipf's law in text analysis. 
 
-<center><img src="assets/plots/B6_zipf" alt="Distribution of word frequencies in reviews" width="70%" /></center>
+<center><img src="assets/plots/zipf.png" alt="Distribution of word frequencies in reviews" width="70%" /></center>
+
+## Classification of reviews
 
 Our goal was now to build a model and train a supervised machine learning based classifier on our dataset of Amazon reviews in order to be able to classify reviews as either "potentially health threatening" (or short "dangerous") or as "probably not health threatening" (or short "safe"). The most challenging part of this was to distinguish between general dislikes and health concerning dislikes.
 
 Training the classifier means showing many many examples of reviews and thereby telling it whether they are dangerous or safe. As the model our classifier is based on we chose a [Random Forest](https://en.wikipedia.org/wiki/Random_forest) algorithm. A Random Forest is basically a bunch of many decision trees, each is trained on a different bootstrap sample of the whole data. A majority vote among all trees then classifies the input.
 
 However, for training the classifier, we need labeled data. To be able to label the reviews in the dataset as potentially health threatening or not, we thought of different approaches:
+
 * One approach was to use [AFINN Sentiment Analysis](https://darenr.github.io/afinn/) (Rowe et al, 2011). Afinn is a python library for [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis), i.e. it classifies a text document as positive, neutral or negative by summing up scores or individual words. E.g. the word "horrible" has a score of -3, the word "inconvenient" has a score of -2, meaning it is less severe than "horrible". Afinn also contains health related words (e.g. "headache" or "vomit"), nevertheless we chose not to use it for labelling the reviews. Sentiment analysis is obviously made for distinguishing general emotion and not for assessing health issues in text.
 * The second idea was to link the reviews to corresponding products in two other datasets of food recalls and press releases of the US American [Food and Drug Administration](https://www.fda.gov/) (FDA). This would have provided us very reliable labels made by professionals. Unfortunately, it was not possible as Amazon and the FDA use different Product IDs which cannot be matched (free of charge). In consequence, we had to find a work around:
 * From various sources (see below) we imported words related to food, food safety, symptoms and pathogens (e.g. bacteria like salmonella)
@@ -69,7 +72,27 @@ However, for training the classifier, we need labeled data. To be able to label 
 
 By analyzing these sources together with the FDA datasets we created lists of words that relate to either pathogens and diseases or symptoms, respectively. However, we decided not to use them for labelling but for post classification analysis as they contain actual threats like the names of bacteria and not vocabulary that might be used to describe their effects.
 
-* The fourth approach, which we used in the end, is based on [Empath](https://github.com/Ejhfast/empath-client). Empath is a python library for sentiment analysis and topic detection. It was created by Fast et al. (2016). 
+* The fourth approach, which we used in the end, is based on [Empath](https://github.com/Ejhfast/empath-client). Empath is a python library for sentiment analysis and topic detection. It was created by Fast et al. (2016). The Empath lexicon contains a network of more than 1.8 billion (English) words. When providing it some seed words, it can create a small set of related words, you can thereby build new categories of sets of words (try it [here](http://empath.stanford.edu/). For our category of health threat related words, we used the seed words "health", "danger" and "food poisoning". 
+
+
+Empath created a category containing the following 100 words:  
+
+	"health", "danger", "welfare", "human_life", "illness", "sickness", "necessity", "safety", "responsibility", "mental_state", "dangers", "well-being", "risk", "lifemate", "knowledge", "survival", "consequence", "humanity", "recovery", "exposure", "risks", "capacity", "wellbeing", "peril", "potential", "responsibilities", "downfall", "death", "loyalty", "bloodline", "fear", "judgement", "poverty", "responsible", "threat", "condition", "importance", "treatment", "current_state", "disease", "discipline", "top_priority", "judgment", "affairs", "healing", "cruelty", "human_race", "sacrifice", "ensure", "demise", "hardship", "separation", "vital", "healer", "losses", "likelihood", "environment", "Psy", "hazard", "corruption", "independence", "future", "own_safety", "needs", "killing", "normalcy", "Council", "suffering", "stability", "virtue", "disability", "sacrifices", "conditions", "free_will", "failure", "therefore", "carelessness", "involvement", "mindset", "unborn_child", "relations", "old_ways", "desires", "possibility", "suffering", "mortality", "side_effects", "probability", "sanity", "complications", "absence", "obligation", "crisis", "life", "abilities", "selfishness", "power", "diseases", "blindness", "benefit"
+
+We used them to categorize the Amazon reviews by assigning a "health score" to each review, i.e. each review gets an integer value representing how many words of our lexicon can be found in the review. As can be seen in the distribution of health scores, most reviews had a score of 0, signifying no potential danger at all. Note the logarithmic scale of the y-axis. 
+## INSERT DISTRIBUTION OF HEALTH_SCORES OVER REVIEWS
+Comparing the health score to the overall rating the reviewers gave showed a surprising result: Many reviews containing a high health score were rated with 5 of 5 stars indicating the product fullfilled the reviewers expectations. Manual inspection of those reviews revealed them to be more like advertisements for the corresponding products. Only when reviewers gave 3 or less stars and there was at least one word of our lexicon was used, we could identify them as "reporting a potential health threat".  
+From the complete dataset of 1.3 million reviews, this allowed us to label only 20,000 (that's only 1.6%). We then labelled a random sample of 130,000 remaining reviews as "safe". This labelled fraction of the complete dataset of around 150,000 reviews (that's 11.4% of all reviews) will then be our training and testing dataset for the machine learning classifier.
+
+## The actual machine learning part
+As mentioned above, we used a [Random Forest](https://en.wikipedia.org/wiki/Random_forest) model. But before training and testing it, we preprocessed the review text, i.e. we removed stopwords (short and meaningless words like "I", "and", "or") and stemmed the remaining words, i.e. plural words become singular and all verbs are changed to their bare infinitive. Moreover, we tokenized the reviews, i.e. transformed it from one big string to a list of small strings (each string is now only one stemmed word). In consequence this transformed the sentence  
+
+	'I ordered spongebob slippers and I got John'
+	
+to 
+
+	['order', 'spongebob', 'slipper', 'got', 'John'].
+
 
 )### empath C1
 create  lexicon of words related to "health", "danger", "food poisoning"  
@@ -107,6 +130,8 @@ Accuracy of classifier = 0,839
 take all so far unlabelled reviews (danger=NaN), classify them
 merge them into the df from previously labelled/classified reviews
 
+### Contributors
+This data story was created by the group "Data Saviors". More detailed descriptions of individual contributions see the About page.
 
 ### Bibliography
 * Finn Årup Nielsen, "A new ANEW: evaluation of a word list for sentiment analysis in microblogs", Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big things come in small packages. Volume 718 in CEUR Workshop Proceedings: 93-98. 2011 May. Matthew Rowe, Milan Stankovic, Aba-Sah Dadzie, Mariann Hardey (editors)
