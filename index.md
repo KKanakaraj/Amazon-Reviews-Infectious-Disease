@@ -124,14 +124,14 @@ When comparing the review texts of products classified as dangerous with the lis
 
 The following two wordclouds show words frequently occuring in the list of food names as well as in reviews classified as dangerous and safe, respectively. We can draw several conclusions from them: Firstly, this list of food words seems strange as it obviously contains words unrelated to food, e.g. "rat" or "money". Some other words, however, might show which food products are more often involved in potential health threates, e.g. "sugar", "tea" and "fruit" and "water".  
 
-On the other hand, food that is frequent in safe reviews are e.g. ...  
-This might be useful as a guide showing which products are more or less likely to be safely consumed.
+On the other hand, food products that are frequent in safe reviews are e.g. water, sugar and tea. Which is very similar to the frequent food words in the products labelled as dangerous. 
+
 
 <center><img src="assets/plots/wordcloud_danger_food.png" alt="Wordcloud of words in food word list and dangerous reviews" width="70%" /></center>
 
 <center><img src="assets/plots/wordcloud_safe_food.png" alt="Wordcloud of words in food word list and safe reviews" width="70%" /></center>
 
-However, looking at samples taken from the reviews classified as dangerous and safe, respectively, shows that for real world use our classifier still needs refinement. 
+Alltogether, looking at the wordclouds and at the following samples taken from the reviews classified as dangerous and safe, respectively, reveals that for real world use our classifier still needs refinement. 
 
 **Sample of 'dangerous' reviews:**
 
