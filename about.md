@@ -12,12 +12,12 @@ We are the group "Data Saviors":*
 * [Fares Ahmed](https://github.com/FaresAh) (data labelling using empath and classification)*
 * [Nikolas Roßkopf](https://github.com/nikoro1904) (post classification analysis and data story)
 
-For our project, we had different food and nutrition related datasets to choose from. We decided to work on a one of [Amazon Reviews of Food and Grocery products](http://jmcauley.ucsd.edu/data/amazon/) purchased in the US from **?** to **?**. We analyzed various aspects with the overall goal of improving the Amazon Recommendation system in regard to detecting possible health threats for customers.
+For our project, we had different food and nutrition related datasets to choose from. We decided to work on a one of [Amazon Reviews of Food and Grocery products](http://jmcauley.ucsd.edu/data/amazon/) purchased in the US from 2000 to 2014. We analyzed various aspects with the overall goal of improving the Amazon Recommendation system in regard to detecting possible health threats for customers.
 
 This Website is hosted by [Github-Pages](https://pages.github.com/) and was built using [Jekyll](https://jekyllrb.com/). The theme we used is [Minima](https://github.com/jekyll/minima).
 
 ![Apples](../assets/maha_apples.jpeg  "from pexels.com, photographer: margemedia.com")
 
-Lausanne, Switzerland. 10 December 2019.
+Lausanne, Switzerland. 20 December 2019.
 
 
